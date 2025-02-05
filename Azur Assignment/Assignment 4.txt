@@ -1,0 +1,65 @@
+You implement an Azure SQL Data Warehouse instance.
+You plan to migrate the largest fact table to Azure SQL Data Warehouse. The table
+resides on Microsoft SQL Server on-premises and is 10 terabytes (TB) is size.
+Incoming queries use the primary key Sale Key column to retrieve data as displayed in
+the following table:
+SaleKey CityKey CustomerKey StockItemKey InvoiceDateKey Quantity UnitPrice TotalExcludingTaxes
+49309 90858 70 69 10/22/13 8 16 128
+49313 55710 126 69 10/22/13 2 16 32
+49343 44710 234 68 10/22/13 10 16 160
+49352 66109 163 70 10/22/13 4 16 64
+49448 65312 230 70 10/22/13 8 16 128
+You need to distribute the large fact table across multiple nodes to optimize
+performance of the table.
+Which technology should you use?
+
+--To optimize performance for the 10 TB fact table in Azure SQL Data Warehouse (Azure Synapse Analytics), use Hash Distribution on the SaleKey column. This ensures rows with the same SaleKey (the primary key used in queries) are stored on the same node, minimizing data movement during queries. Since SaleKey is unique, it avoids uneven data distribution (skew) and allows queries filtering by SaleKey to run efficiently on a single node. Avoid Round Robin (random distribution) or Replicated Tables (for small tables only), as they would slow down queries for this large dataset.
+
+Mike is the data engineer for Contoso and has a data warehouse created with a database named Crystal. Mike created a master key, followed by a database-scoped
+credential. What should he create next?
+
+--After creating the master key and database-scoped credential, Mike should create an external data source. This defines where the external data (like files in Azure Blob Storage) is located and uses the credential to securely connect to it. The external data source acts as a bridge, allowing the data warehouse to access and query external data. Without this step, the system wouldn’t know where to find the data or how to authenticate access.
+
+You have an Azure Synapse Analytics database. Within the database, you have a
+dimension table named Stores that contains store information. You have a total of 263
+stores nationwide. Store information is retrieved in more than half of the queries that
+are issued against this database. These queries include staff information per store, sales
+information per store, and finance information. You want to improve the query
+performance of these queries by configuring the table geometry of the Stores table.
+Which is the appropriate table geometry to select for the Stores table and why?
+a) Round-Robin
+b) Non-clustered
+c) Replicated table
+
+-- The best choice is c) Replicated table. Since the Stores table is small (263 rows) and used in over half of the queries, replicating it ensures a full copy is stored on every compute node. This eliminates data movement during joins (e.g., joining with sales or staff tables), making queries faster. Round-Robin (random distribution) would slow down joins, and Non-clustered refers to indexes, not table distribution. Replication is ideal for small, frequently accessed tables.
+
+Determine whether the solution meets the stated goals.
+You develop a data ingestion process that will import data to a Microsoft Azure SQL
+Data Warehouse. The data to be ingested resides in parquet files stored in an Azure
+Data Lake Gen 2 storage account.
+You need to load the data from the Azure Data Lake Gen 2 storage account into the
+Azure SQL Data Warehouse.
+Solution:
+1. Create an external data source pointing to the Azure storage account
+2. Create a workload group using the Azure storage account name as the pool name
+3. Load the data using the INSERT"¦SELECT statement
+Does the solution meet the goal?
+
+---The solution does not meet the goal.
+Step 1 (creating an external data source) is correct, as it connects the data warehouse to Azure Data Lake Gen2. However, Step 2 (workload group) is unrelated to data ingestion—workload groups manage query resources, not storage access. Step 3 (INSERT…SELECT) is incomplete because it skips creating an external table to map the Parquet files for querying. Without the external table, the data cannot be read. Additionally, bulk-loading tools like COPY INTO or CREATE TABLE AS SELECT (CTAS) are more efficient for large datasets. The solution misses critical steps and includes unnecessary ones.
+
+. Determine whether the solution meets the stated goals.
+You develop a data ingestion process that will import data to a Microsoft Azure SQL
+Data Warehouse. The data to be ingested resides in parquet files stored in an Azure
+Data Lake Gen 2 storage account.
+You need to load the data from the Azure Data Lake Gen 2 storage account into the
+Azure SQL Data Warehouse.
+Solution:
+1. Use Azure Data Factory to convert the parquet files to CSV files
+2. Create an external data source pointing to the Azure storage account
+3. Create an external file format and external table using the external data source
+4. Load the data using the INSERT"¦SELECT statement
+Does the solution meet the goal?
+
+---The solution partially meets the goal but includes inefficiencies.
+Step 1 (converting Parquet to CSV) is unnecessary because Azure SQL Data Warehouse can directly read Parquet files. Steps 2-3 (external data source, file format, and table) are correct and required to access the Parquet data. However, Step 4 (INSERT…SELECT) is less efficient for large-scale loading—using COPY INTO or CREATE TABLE AS SELECT (CTAS) would be faster and more scalable. While the solution works, skipping the CSV conversion and using optimized bulk-loading methods would fully achieve the goal with better performance.

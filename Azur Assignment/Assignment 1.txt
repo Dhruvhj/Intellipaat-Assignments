@@ -1,0 +1,41 @@
+1. Your manager called you and assigned a task to configure automatic high-availability
+option for recently migrated SQL Database in Azure Virtual machine.
+You replied to him that SQL Server in VM can’t be entirely configured automatically. Is it
+right? Also mention the reason.
+
+--yes it is, 
+When running SQL Server on a virtual machine in Azure, it’s not possible to fully automate the configuration process.
+This limitation comes from Azure offering various services and features designed to improve the availability of SQL Servers, such as Azure SQL Databases, which come with built-in high availability features like the Azure SQL Database Managed Instance (MI). However, these features don’t directly apply to SQL Server running on a virtual machine (VM).
+For SQL Server on a VM, you’ll need to manually configure high availability options.
+
+2. Company has a plan to migrate to Azure Cloud, they setup a meeting to figure out what is
+easiest and quickest way to lift and shift on-premises database to cloud, without much
+changes and hassle.
+You were given with 3 options: SQL Server in VM(IAAS), Azure Single Database and
+Azure Elastic Database Pool
+What option would you suggest in meeting? Also mention the reason
+
+--I would suggest going with SQL Server in a Virtual Machine (IaaS) as the easiest and quickest option for migrating the on-premises database to the cloud, without much change and hassle because- 
+It allows a lift-and-shift approach with minimal changes, closely resembling the on-premises setup.
+You retain full control over the environment, ensuring compatibility and performance.
+The transition is straightforward, minimizing disruption to business operations.
+
+3. You are a Database Engineer and while analyzing your databases, you came up with 
+below data. 
+This is a usage pattern of your 4 individual single databases. 
+Do you suggest combining them to elastic pool? Also mention the reason.
+
+yes combining them to elastic pool is a good decision because The DTU usage peaks for the databases occur at different times, meaning their resource demands are spread throughout the day. This makes Elastic Pool efficient as resources can be shared among databases without requiring individual provisioning for peak loads. instead of allocating resources separately for each database, an Elastic Pool allows for shared DTUs, reducing costs.It provides flexibility to handle fluctuations in demand across all databases
+
+4. You are a Database Engineer and while analyzing your databases, you came up with 
+below data. 
+This is a usage pattern of your 4 individual single databases. 
+Do you suggest combining them to elastic pool? Also mention the reason. 
+
+--- No combining them to elastic pool is not recommended because the DTU usage peaks for all databases occur around the same time between 10:00 to 16:00 hours This means the combined resource demand will be high during these hours, potentially exceeding the shared pool capacity.
+
+5. Your company has a SQL Database instance loaded, and your employer is concerned about 
+scaling. You tell your employer that SQL Database is dynamically-scaling and will auto-scale 
+as needed. Is this an appropriate answer?
+
+--No, Azure SQL database does not automatically scale without proper configuration as it requires to config to increase or decrease resources based on your workloa.automatic scaling is possible with serverless tiers 

@@ -1,0 +1,112 @@
+Microsoft Windows [Version 10.0.22631.4751]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\dhruv>mkdir docker
+
+C:\Users\dhruv>mkdir docker
+A subdirectory or file docker already exists.
+
+C:\Users\dhruv>cd docker
+
+C:\Users\dhruv\docker>sudo nano Dockerfile
+'sudo' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\dhruv\docker>nano Dockerfile
+'nano' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\dhruv\docker>notepad Dockerfile
+
+C:\Users\dhruv\docker>notepad index.html
+
+C:\Users\dhruv\docker>docker build . -t my-container
+[+] Building 0.2s (1/1) FINISHED           docker:desktop-linux
+ => [internal] load build definition from Dockerfile       0.1s
+ => => transferring dockerfile: 2B                         0.0s
+ERROR: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+C:\Users\dhruv\docker>pwd
+'pwd' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\dhruv\docker>dir
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 0E89-8992
+
+ Directory of C:\Users\dhruv\docker
+
+01/19/2025  08:44 PM    <DIR>          .
+01/19/2025  08:39 PM    <DIR>          ..
+01/19/2025  08:44 PM               155 Dockerfile.txt
+01/19/2025  08:45 PM                80 index.html
+               2 File(s)            235 bytes
+               2 Dir(s)  225,025,708,032 bytes free
+
+C:\Users\dhruv\docker>rename Dockerfile.txt Dockerfile
+
+C:\Users\dhruv\docker>dir
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 0E89-8992
+
+ Directory of C:\Users\dhruv\docker
+
+01/19/2025  08:48 PM    <DIR>          .
+01/19/2025  08:39 PM    <DIR>          ..
+01/19/2025  08:44 PM               155 Dockerfile
+01/19/2025  08:45 PM                80 index.html
+               2 File(s)            235 bytes
+               2 Dir(s)  225,026,256,896 bytes free
+
+C:\Users\dhruv\docker>docker build . -t my-container
+[+] Building 36.6s (10/10) FINISHED        docker:desktop-linux
+ => [internal] load build definition from Dockerfile       0.0s
+ => => transferring dockerfile: 194B                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu  3.7s
+ => [auth] library/ubuntu:pull token for registry-1.docke  0.0s
+ => [internal] load .dockerignore                          0.0s
+ => => transferring context: 2B                            0.0s
+ => [1/4] FROM docker.io/library/ubuntu:latest@sha256:80d  7.7s
+ => => resolve docker.io/library/ubuntu:latest@sha256:80d  0.1s
+ => => sha256:b1d9df8ab81559494794e522b38 2.30kB / 2.30kB  0.0s
+ => => sha256:de44b265507ae44b212defcb5 29.75MB / 29.75MB  6.7s
+ => => sha256:80dd3c3b9c6cecb9f1667e9290b 6.69kB / 6.69kB  0.0s
+ => => sha256:6e75a10070b0fcb0bead763c5118a36 424B / 424B  0.0s
+ => => extracting sha256:de44b265507ae44b212defcb50694d66  0.7s
+ => [internal] load build context                          0.1s
+ => => transferring context: 313B                          0.0s
+ => [2/4] RUN apt-get update                               8.2s
+ => [3/4] RUN apt-get -y install apache2                  16.4s
+ => [4/4] ADD .  /var/www/html                             0.1s
+ => exporting to image                                     0.4s
+ => => exporting layers                                    0.3s
+ => => writing image sha256:464eb782e8635399f880c5098a9c7  0.0s
+ => => naming to docker.io/library/my-container            0.0s
+
+ 2 warnings found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for ENTRYPOINT to prevent unintended behavior related to OS signals (line 5)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 6)
+
+C:\Users\dhruv\docker>docker run -it -p 81:80 -d my-container
+0493b2e01d414c3691a1687e29f84cee7755294291df71cfb836f12d019a8275
+
+C:\Users\dhruv\docker>docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS              PORTS                NAMES
+0493b2e01d41   my-container   "/bin/sh -c 'apachec…"   About a minute ago   Up About a minute   0.0.0.0:81->80/tcp   heuristic_germain
+
+C:\Users\dhruv\docker>http://localhost:81
+'http:' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\dhruv\docker>
+
+
+
+
+
+
+
+
+
+
+3

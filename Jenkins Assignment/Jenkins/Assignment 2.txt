@@ -1,0 +1,15 @@
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ip-172-31-88-136:~$ ls
+jenkins
+ubuntu@ip-172-31-88-136:~$ cd jenkins
+ubuntu@ip-172-31-88-136:~/jenkins$ ls
+remoting  remoting.jar
+ubuntu@ip-172-31-88-136:~/jenkins$ ls
+remoting  remoting.jar  workspace
+ubuntu@ip-172-31-88-136:~/jenkins$ cd workspace
+ubuntu@ip-172-31-88-136:~/jenkins/workspace$ ls
+job2
+ubuntu@ip-172-31-88-136:~/jenkins/workspace$ cd job2
+ubuntu@ip-172-31-88-136:~/jenkins/workspace/job2$ ls
+f1.txt
+ubuntu@ip-172-31-88-136:~/jenkins/workspace/job2$ 

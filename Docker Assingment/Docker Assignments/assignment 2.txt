@@ -1,0 +1,42 @@
+Microsoft Windows [Version 10.0.22631.4751]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\dhruv>
+
+C:\Users\dhruv>docker commit 0493b2e01d41 my-apache-image
+sha256:c57f5710549bdfcb6510a13a1dca00cc0da55b23c837991cc8f637a26b26eff6
+
+C:\Users\dhruv>docker run -d -p 81:80 my-apache-image
+762c5bc1e614d1f37bee5d10e76e146c65a0e97f3f86104252b0f1a4a9a97475
+docker: Error response from daemon: driver failed programming external connectivity on endpoint lucid_ishizaka (46243c7ef492c0a004d707cb4144a50fbc1003b523109efb7bd832d87b8fef72): Bind for 0.0.0.0:81 failed: port is already allocated.
+
+C:\Users\dhruv>netstat -ano | findstr :81
+  TCP    0.0.0.0:81             0.0.0.0:0              LISTENING       6476
+  TCP    [::]:81                [::]:0                 LISTENING       6476
+  TCP    [::1]:81               [::]:0                 LISTENING       9164
+  UDP    [fe80::deb9:11c3:8160:21c%43]:1900  *:*                                    10452
+  UDP    [fe80::deb9:11c3:8160:21c%43]:57179  *:*                                    10452
+
+C:\Users\dhruv>taskkill /PID 6476 /F
+SUCCESS: The process with PID 6476 has been terminated.
+
+C:\Users\dhruv>netstat -ano | findstr :81
+  UDP    [fe80::deb9:11c3:8160:21c%43]:1900  *:*                                    10452
+  UDP    [fe80::deb9:11c3:8160:21c%43]:57179  *:*                                    10452
+
+C:\Users\dhruv>
+C:\Users\dhruv>docker run -d -p 81:80 my-apache-image
+docker: error during connect: Head "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/_ping": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+See 'docker run --help'.
+
+C:\Users\dhruv>docker run -d -p 81:80 my-apache-image
+8b1aab87919dd3e6fe528bdb4a219e5f9d17de2c6decf2089082c51307896fe5
+
+C:\Users\dhruv>docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                NAMES
+8b1aab87919d   my-apache-image   "/bin/sh -c 'apachec…"   19 seconds ago   Up 18 seconds   0.0.0.0:81->80/tcp   angry_khorana
+
+C:\Users\dhruv>docker exec -it 8b1aab87919dd3e6fe528bdb4a219e5f9d17de2c6decf2089082c51307896fe5 bash
+root@8b1aab87919d:/# service apache2 start
+ * Starting Apache httpd web server apache2                                                                                           *
+root@8b1aab87919d:/#

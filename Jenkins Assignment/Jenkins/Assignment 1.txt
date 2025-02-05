@@ -1,0 +1,14 @@
+
+Last login: Tue Jan 21 13:05:59 2025 from 18.206.107.27
+ubuntu@ip-172-31-89-199:~$ ls
+jenkins
+ubuntu@ip-172-31-89-199:~$ cd jenkins
+ubuntu@ip-172-31-89-199:~/jenkins$ ls
+remoting  remoting.jar  workspace
+ubuntu@ip-172-31-89-199:~/jenkins$ cd workspace
+ubuntu@ip-172-31-89-199:~/jenkins/workspace$ ls
+job1
+ubuntu@ip-172-31-89-199:~/jenkins/workspace$ cd job1
+ubuntu@ip-172-31-89-199:~/jenkins/workspace/job1$ ls
+Jenkinsfile  test.txt  testfile.txt
+ubuntu@ip-172-31-89-199:~/jenkins/workspace/job1$ 

@@ -1,0 +1,148 @@
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git init
+Initialized empty Git repository in C:/Users/dhruv/GitAssignment4/.git/
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ touch master .txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git add master.txt
+fatal: pathspec 'master.txt' did not match any files
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ ^C
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ rm master
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ touch master.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git add master.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git commit -m "Add master.txt to the master branch"
+[master (root-commit) 682526c] Add master.txt to the master branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 master.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git branch public1
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git branch public2
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git branch private
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout public1
+Switched to branch 'public1'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ touch public1.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git add public.txt
+fatal: pathspec 'public.txt' did not match any files
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git add public1.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git commit -m "Add public1 text file to the public 1 branch"
+[public1 6d0b66b] Add public1 text file to the public 1 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 public1.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git checkout master
+Switched to branch 'master'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git merge public1 -m "Merge public 1 with master"
+Updating 682526c..6d0b66b
+Fast-forward (no commit created; -m option ignored)
+ public1.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 public1.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout master
+Already on 'master'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git merge public2 -m
+error: switch `m' requires a value
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git merge public2 -m "Merge p2 with mater"
+Already up to date.
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout private
+Switched to branch 'private'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (private)
+$ echo "fsdgfs" >> master.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (private)
+$ git add master.txt
+warning: in the working copy of 'master.txt', LF will be replaced by CRLF the next time Git touches it
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (private)
+$ git commit -m "fesrjfi"
+[private 3b65e98] fesrjfi
+ 1 file changed, 1 insertion(+)
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (private)
+$ git checkout public1
+Switched to branch 'public1'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git merge master -m "Merge master changes into public1"
+Already up to date.
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public1)
+$ git checkout public2
+Switched to branch 'public2'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public2)
+$ git merge master -m "merge master changes into publlic2"
+Updating 682526c..6d0b66b
+Fast-forward (no commit created; -m option ignored)
+ public1.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 public1.txt
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (public2)
+$ git checkout master
+Switched to branch 'master'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git merge private -m "merge private branch into master"
+Merge made by the 'ort' strategy.
+ master.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (master)
+$ git checkout private
+Switched to branch 'private'
+
+dhruv@SpaceJet MINGW64 ~/GitAssignment4 (private)
+$ git merge master -m "update private branch with latest master code"
+Updating 3b65e98..36d863a
+Fast-forward (no commit created; -m option ignored)
+ public1.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 public1.txt

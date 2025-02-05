@@ -1,0 +1,79 @@
+Microsoft Windows [Version 10.0.22631.4751]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\dhruv>docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+de44b265507a: Already exists
+Digest: sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6734ab
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+C:\Users\dhruv>docker run -d -p 80:80 ubuntu
+f27b8a5fba871b9d372136ae1ec2e2463da810777b00b07290bf33a8888f40f3
+
+C:\Users\dhruv>docker exec -it <container_id> bash
+The system cannot find the file specified.
+
+C:\Users\dhruv>docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                NAMES
+0493b2e01d41   my-container   "/bin/sh -c 'apachec…"   11 minutes ago   Up 11 minutes   0.0.0.0:81->80/tcp   heuristic_germain
+
+C:\Users\dhruv>docker exec -it 0493b2e01d41 bash
+root@0493b2e01d41:/# apt update
+apt install apache2 -y
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+apache2 is already the newest version (2.4.58-1ubuntu8.5).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+root@0493b2e01d41:/# service apache2 start
+ * Starting Apache httpd web server apache2                                                                              *
+root@0493b2e01d41:/# ls /var/www/html
+Dockerfile  index.html
+root@0493b2e01d41:/# rm /var/www/html/index.html
+root@0493b2e01d41:/# service apache2 restart
+ * Restarting Apache httpd web server apache2
+C:\Users\dhruv>service apache2 status
+'service' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\dhruv>docker exec -it 0493b2e01d41 bash
+Error response from daemon: container 0493b2e01d414c3691a1687e29f84cee7755294291df71cfb836f12d019a8275 is not running
+
+C:\Users\dhruv>docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                     PORTS     NAMES
+f27b8a5fba87   ubuntu         "/bin/bash"              7 minutes ago    Exited (0) 7 minutes ago             amazing_mclaren
+0493b2e01d41   my-container   "/bin/sh -c 'apachec…"   18 minutes ago   Exited (0) 2 minutes ago             heuristic_germain
+
+C:\Users\dhruv>docker start 0493b2e01d41
+0493b2e01d41
+
+C:\Users\dhruv>docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS         PORTS                NAMES
+0493b2e01d41   my-container   "/bin/sh -c 'apachec…"   19 minutes ago   Up 9 seconds   0.0.0.0:81->80/tcp   heuristic_germain
+
+C:\Users\dhruv>docker exec -it 0493b2e01d41 bash
+root@0493b2e01d41:/# service apache2 status
+ * apache2 is running
+root@0493b2e01d41:/# service apache2 restart
+ * Restarting Apache httpd web server apache2
+C:\Users\dhruv>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\dhruv>docker start 0493b2e01d41
+0493b2e01d41
+
+C:\Users\dhruv>docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                NAMES
+0493b2e01d41   my-container   "/bin/sh -c 'apachec…"   20 minutes ago   Up 11 seconds   0.0.0.0:81->80/tcp   heuristic_germain
+
+C:\Users\dhruv>

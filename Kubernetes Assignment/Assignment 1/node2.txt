@@ -1,0 +1,206 @@
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-18-54 ~]$ sudo su
+[root@ip-172-31-18-54 ec2-user]#  yum install docker -y
+Amazon Linux 2023 Kernel Livepatch repository                                                                                                 89 kB/s |  11 kB     00:00    
+Dependencies resolved.
+=============================================================================================================================================================================
+ Package                                         Architecture                    Version                                          Repository                            Size
+=============================================================================================================================================================================
+Installing:
+ docker                                          x86_64                          25.0.6-1.amzn2023.0.2                            amazonlinux                           44 M
+Installing dependencies:
+ containerd                                      x86_64                          1.7.23-1.amzn2023.0.1                            amazonlinux                           36 M
+ iptables-libs                                   x86_64                          1.8.8-3.amzn2023.0.2                             amazonlinux                          401 k
+ iptables-nft                                    x86_64                          1.8.8-3.amzn2023.0.2                             amazonlinux                          183 k
+ libcgroup                                       x86_64                          3.0-1.amzn2023.0.1                               amazonlinux                           75 k
+ libnetfilter_conntrack                          x86_64                          1.0.8-2.amzn2023.0.2                             amazonlinux                           58 k
+ libnfnetlink                                    x86_64                          1.0.1-19.amzn2023.0.2                            amazonlinux                           30 k
+ libnftnl                                        x86_64                          1.2.2-2.amzn2023.0.2                             amazonlinux                           84 k
+ pigz                                            x86_64                          2.5-1.amzn2023.0.3                               amazonlinux                           83 k
+ runc                                            x86_64                          1.1.14-1.amzn2023.0.1                            amazonlinux                          3.2 M
+
+Transaction Summary
+=============================================================================================================================================================================
+Install  10 Packages
+
+Total download size: 84 M
+Installed size: 317 M
+Downloading Packages:
+(1/10): iptables-libs-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                                        5.0 MB/s | 401 kB     00:00    
+(2/10): iptables-nft-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                                         5.7 MB/s | 183 kB     00:00    
+(3/10): libcgroup-3.0-1.amzn2023.0.1.x86_64.rpm                                                                                              4.4 MB/s |  75 kB     00:00    
+(4/10): libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64.rpm                                                                               2.9 MB/s |  58 kB     00:00    
+(5/10): libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64.rpm                                                                                        974 kB/s |  30 kB     00:00    
+(6/10): libnftnl-1.2.2-2.amzn2023.0.2.x86_64.rpm                                                                                             4.2 MB/s |  84 kB     00:00    
+(7/10): pigz-2.5-1.amzn2023.0.3.x86_64.rpm                                                                                                   2.5 MB/s |  83 kB     00:00    
+(8/10): runc-1.1.14-1.amzn2023.0.1.x86_64.rpm                                                                                                 25 MB/s | 3.2 MB     00:00    
+(9/10): containerd-1.7.23-1.amzn2023.0.1.x86_64.rpm                                                                                           30 MB/s |  36 MB     00:01    
+(10/10): docker-25.0.6-1.amzn2023.0.2.x86_64.rpm                                                                                              29 MB/s |  44 MB     00:01    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                         54 MB/s |  84 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                     1/1 
+  Installing       : runc-1.1.14-1.amzn2023.0.1.x86_64                                                                                                                  1/10 
+  Installing       : containerd-1.7.23-1.amzn2023.0.1.x86_64                                                                                                            2/10 
+  Running scriptlet: containerd-1.7.23-1.amzn2023.0.1.x86_64                                                                                                            2/10 
+  Installing       : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                                     3/10 
+  Installing       : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                               4/10 
+  Installing       : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                                          5/10 
+  Installing       : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                                 6/10 
+  Installing       : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                                          7/10 
+  Installing       : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                           8/10 
+  Running scriptlet: iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                           8/10 
+  Installing       : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                                9/10 
+  Running scriptlet: docker-25.0.6-1.amzn2023.0.2.x86_64                                                                                                               10/10 
+  Installing       : docker-25.0.6-1.amzn2023.0.2.x86_64                                                                                                               10/10 
+  Running scriptlet: docker-25.0.6-1.amzn2023.0.2.x86_64                                                                                                               10/10 
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.
+
+  Verifying        : containerd-1.7.23-1.amzn2023.0.1.x86_64                                                                                                            1/10 
+  Verifying        : docker-25.0.6-1.amzn2023.0.2.x86_64                                                                                                                2/10 
+  Verifying        : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                                          3/10 
+  Verifying        : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                           4/10 
+  Verifying        : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                                5/10 
+  Verifying        : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                                 6/10 
+  Verifying        : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                                          7/10 
+  Verifying        : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                               8/10 
+  Verifying        : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                                     9/10 
+  Verifying        : runc-1.1.14-1.amzn2023.0.1.x86_64                                                                                                                 10/10 
+
+Installed:
+  containerd-1.7.23-1.amzn2023.0.1.x86_64                 docker-25.0.6-1.amzn2023.0.2.x86_64                iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                       
+  iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                libcgroup-3.0-1.amzn2023.0.1.x86_64                libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64              
+  libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64               libnftnl-1.2.2-2.amzn2023.0.2.x86_64               pigz-2.5-1.amzn2023.0.3.x86_64                                  
+  runc-1.1.14-1.amzn2023.0.1.x86_64                      
+
+Complete!
+[root@ip-172-31-18-54 ec2-user]# systemctl start docker
+[root@ip-172-31-18-54 ec2-user]# sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+[root@ip-172-31-18-54 ec2-user]# cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+EOF
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+[root@ip-172-31-18-54 ec2-user]# sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+Kubernetes                                                                                                                                    67 kB/s | 7.8 kB     00:00    
+Dependencies resolved.
+=============================================================================================================================================================================
+ Package                                         Architecture                    Version                                          Repository                            Size
+=============================================================================================================================================================================
+Installing:
+ kubeadm                                         x86_64                          1.32.1-150500.1.1                                kubernetes                            12 M
+ kubectl                                         x86_64                          1.32.1-150500.1.1                                kubernetes                            11 M
+ kubelet                                         x86_64                          1.32.1-150500.1.1                                kubernetes                            15 M
+Installing dependencies:
+ conntrack-tools                                 x86_64                          1.4.6-2.amzn2023.0.2                             amazonlinux                          208 k
+ cri-tools                                       x86_64                          1.32.0-150500.1.1                                kubernetes                           7.1 M
+ kubernetes-cni                                  x86_64                          1.6.0-150500.1.1                                 kubernetes                           8.0 M
+ libnetfilter_cthelper                           x86_64                          1.0.0-21.amzn2023.0.2                            amazonlinux                           24 k
+ libnetfilter_cttimeout                          x86_64                          1.0.0-19.amzn2023.0.2                            amazonlinux                           24 k
+ libnetfilter_queue                              x86_64                          1.0.5-2.amzn2023.0.2                             amazonlinux                           30 k
+
+Transaction Summary
+=============================================================================================================================================================================
+Install  9 Packages
+
+Total download size: 53 M
+Installed size: 289 M
+Downloading Packages:
+(1/9): libnetfilter_cthelper-1.0.0-21.amzn2023.0.2.x86_64.rpm                                                                                568 kB/s |  24 kB     00:00    
+(2/9): libnetfilter_cttimeout-1.0.0-19.amzn2023.0.2.x86_64.rpm                                                                               512 kB/s |  24 kB     00:00    
+(3/9): conntrack-tools-1.4.6-2.amzn2023.0.2.x86_64.rpm                                                                                       3.7 MB/s | 208 kB     00:00    
+(4/9): libnetfilter_queue-1.0.5-2.amzn2023.0.2.x86_64.rpm                                                                                    1.5 MB/s |  30 kB     00:00    
+(5/9): kubeadm-1.32.1-150500.1.1.x86_64.rpm                                                                                                   20 MB/s |  12 MB     00:00    
+(6/9): kubectl-1.32.1-150500.1.1.x86_64.rpm                                                                                                   17 MB/s |  11 MB     00:00    
+(7/9): cri-tools-1.32.0-150500.1.1.x86_64.rpm                                                                                                 10 MB/s | 7.1 MB     00:00    
+(8/9): kubernetes-cni-1.6.0-150500.1.1.x86_64.rpm                                                                                             34 MB/s | 8.0 MB     00:00    
+(9/9): kubelet-1.32.1-150500.1.1.x86_64.rpm                                                                                                   38 MB/s |  15 MB     00:00    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                         50 MB/s |  53 MB     00:01     
+Kubernetes                                                                                                                                    32 kB/s | 1.7 kB     00:00    
+Importing GPG key 0x9A296436:
+ Userid     : "isv:kubernetes OBS Project <isv:kubernetes@build.opensuse.org>"
+ Fingerprint: DE15 B144 86CD 377B 9E87 6E1A 2346 54DA 9A29 6436
+ From       : https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                     1/1 
+  Installing       : kubernetes-cni-1.6.0-150500.1.1.x86_64                                                                                                              1/9 
+  Installing       : cri-tools-1.32.0-150500.1.1.x86_64                                                                                                                  2/9 
+  Installing       : libnetfilter_queue-1.0.5-2.amzn2023.0.2.x86_64                                                                                                      3/9 
+  Installing       : libnetfilter_cttimeout-1.0.0-19.amzn2023.0.2.x86_64                                                                                                 4/9 
+  Installing       : libnetfilter_cthelper-1.0.0-21.amzn2023.0.2.x86_64                                                                                                  5/9 
+  Installing       : conntrack-tools-1.4.6-2.amzn2023.0.2.x86_64                                                                                                         6/9 
+  Running scriptlet: conntrack-tools-1.4.6-2.amzn2023.0.2.x86_64                                                                                                         6/9 
+  Installing       : kubelet-1.32.1-150500.1.1.x86_64                                                                                                                    7/9 
+  Running scriptlet: kubelet-1.32.1-150500.1.1.x86_64                                                                                                                    7/9 
+  Installing       : kubeadm-1.32.1-150500.1.1.x86_64                                                                                                                    8/9 
+  Installing       : kubectl-1.32.1-150500.1.1.x86_64                                                                                                                    9/9 
+  Running scriptlet: kubectl-1.32.1-150500.1.1.x86_64                                                                                                                    9/9 
+  Verifying        : conntrack-tools-1.4.6-2.amzn2023.0.2.x86_64                                                                                                         1/9 
+  Verifying        : libnetfilter_cthelper-1.0.0-21.amzn2023.0.2.x86_64                                                                                                  2/9 
+  Verifying        : libnetfilter_cttimeout-1.0.0-19.amzn2023.0.2.x86_64                                                                                                 3/9 
+  Verifying        : libnetfilter_queue-1.0.5-2.amzn2023.0.2.x86_64                                                                                                      4/9 
+  Verifying        : cri-tools-1.32.0-150500.1.1.x86_64                                                                                                                  5/9 
+  Verifying        : kubeadm-1.32.1-150500.1.1.x86_64                                                                                                                    6/9 
+  Verifying        : kubectl-1.32.1-150500.1.1.x86_64                                                                                                                    7/9 
+  Verifying        : kubelet-1.32.1-150500.1.1.x86_64                                                                                                                    8/9 
+  Verifying        : kubernetes-cni-1.6.0-150500.1.1.x86_64                                                                                                              9/9 
+
+Installed:
+  conntrack-tools-1.4.6-2.amzn2023.0.2.x86_64               cri-tools-1.32.0-150500.1.1.x86_64                         kubeadm-1.32.1-150500.1.1.x86_64                     
+  kubectl-1.32.1-150500.1.1.x86_64                          kubelet-1.32.1-150500.1.1.x86_64                           kubernetes-cni-1.6.0-150500.1.1.x86_64               
+  libnetfilter_cthelper-1.0.0-21.amzn2023.0.2.x86_64        libnetfilter_cttimeout-1.0.0-19.amzn2023.0.2.x86_64        libnetfilter_queue-1.0.5-2.amzn2023.0.2.x86_64       
+
+Complete!
+[root@ip-172-31-18-54 ec2-user]# sudo systemctl enable --now kubelet
+Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /usr/lib/systemd/system/kubelet.service.
+[root@ip-172-31-18-54 ec2-user]# kubeadm join 172.31.16.26:6443 --token 8r5mwj.cxhw1k3g9op5v7wo \
+        --discovery-token-ca-cert-hash sha256:8deace3afcc81cda9dd7829784eb0cd20b43725748b03944b08a6e0cee1f3e17 
+[preflight] Running pre-flight checks
+        [WARNING FileExisting-tc]: tc not found in system path
+[preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+[preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Starting the kubelet
+[kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+[kubelet-check] The kubelet is healthy after 501.735481ms
+[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap
+
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
+
+[root@ip-172-31-18-54 ec2-user]# 

@@ -1,0 +1,121 @@
+{
+  "name": "YouTube_Traffic_Analytics",
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy_Raw_to_Processing",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "7.00:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "RawCSV",
+            "type": "DatasetReference",
+            "parameters": {
+              "StorageAccount": "adlspromotion",
+              "Container": "raw"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ProcessingCSV",
+            "type": "DatasetReference",
+            "parameters": {
+              "StorageAccount": "adlspromotion",
+              "Container": "processing"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Transform_Video_Data",
+        "type": "ExecuteDataFlow",
+        "dependsOn": [
+          {
+            "activity": "Copy_Raw_to_Processing",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "policy": {
+          "timeout": "1.00:00:00",
+          "retry": 0
+        },
+        "typeProperties": {
+          "dataflow": {
+            "referenceName": "Filter_and_Aggregate_Videos",
+            "type": "DataFlowReference"
+          }
+        }
+      },
+      {
+        "name": "Archive_Processed_Files",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "Transform_Video_Data",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "policy": {
+          "timeout": "7.00:00:00",
+          "retry": 0
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": true
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobStorageWriteSettings"
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "ProcessingCSV",
+            "type": "DatasetReference",
+            "parameters": {
+              "StorageAccount": "adlspromotion",
+              "Container": "processing"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "ArchiveCSV",
+            "type": "DatasetReference",
+            "parameters": {
+              "StorageAccount": "adlspromotion",
+              "Container": "archive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

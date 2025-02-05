@@ -1,0 +1,38 @@
+#Create a working directory with feature1.txt and feature2.txt
+mkdir GitAssignment2
+cd GitAssignment2
+git init
+
+#Create feature1.txt and feature2.txt in the master branch - Step1
+touch feature1.txt feature2.txt
+git add feature1.txt feature2.txt
+git commit -m "Add feature1.txt and feature2.txt"
+
+#Create 3 branches: develop, feature1, and feature2 - Step 2
+git branch develop
+git branch feature1
+git branch feature2
+
+#Checkout to the develop branch and create develop.txt - Step 3
+git checkout develop
+touch develop.txt
+# Do not stage or commit develop.txt
+
+#Stash develop.txt - step 4
+git stash
+
+#Checkout to the feature1 branch - step 5
+git checkout feature1
+
+# Create new.txt in the feature1 branch, stage and commit it -  Step 6
+touch new.txt
+git add new.txt
+git commit -m "Add new.txt to feature1 branch"
+
+#Checkout to develop and unstash the stashed file - Step 7
+git checkout develop
+git stash pop
+
+#Commit the unstashed file - Step 8
+git add develop.txt
+git commit -m "Add develop.txt from stash"

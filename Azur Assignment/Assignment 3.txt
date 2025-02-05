@@ -1,0 +1,30 @@
+1. Using Data Factory, Copy data from Azure Blob Storage to Azure Data Lake Storage Gen2
+
+2. Define Azure Cosmos DB and what are itsfeatures?
+
+--Azure Cosmos DB is a fully managed, globally distributed NoSQL and relational database service designed for modern, high-scale applications. It offers seamless global distribution, automatically replicating data across Azure regions to ensure low-latency access and high availability, backed by a 99.999% uptime SLA. Supporting multiple data models and APIs—including SQL, MongoDB, Cassandra, Gremlin, Table, and PostgreSQL—it provides flexibility to work with diverse data types and use cases. The service scales dynamically with serverless and provisioned throughput options, optimizing costs for variable workloads. It guarantees single-digit millisecond latency for reads and writes and allows tuning data consistency across five levels (from strong to eventual). Built-in security features like encryption, compliance certifications, and role-based access control ensure enterprise-grade protection.
+
+3. Why do we need Azure Blob Storage?
+
+--Azure Blob Storage is essential for storing and managing unstructured data (e.g., images, videos, logs, backups) at scale. It offers cost-effective, secure, and highly available storage with tiered options (hot, cool, archive), global accessibility via HTTP/HTTPS, and seamless integration with Azure services (e.g., Data Lake, Functions). Ideal for backups, media hosting, big data analytics, and cloud-native apps
+
+4.Define the strategies for Partitioning data with example.
+
+--Partitioning strategies are techniques to divide data into smaller subsets for scalability and performance. Horizontal partitioning (sharding) splits rows by a key, such as grouping users by UserID ranges (e.g., IDs 1–1000 in Shard A). Vertical partitioning separates columns into distinct tables, like splitting a Customer table into Profile (name, email) and Financials (credit card). Range partitioning organizes data by value ranges, such as storing logs in monthly partitions (e.g., Logs_2023_01). Hash partitioning distributes data evenly using a hash function (e.g., OrderID % 4 creates 4 balanced partitions). Directory-based partitioning uses a lookup service to dynamically map data, like routing CustomerID to specific servers. These strategies balance workloads, optimize query efficiency, and prevent performance bottlenecks.
+
+5.List the semantics of consistency levels and define them.
+
+--Consistency Levels determine how data is synchronized in distributed systems:
+
+Strong: Reads return the latest write (e.g., banking).
+
+Bounded Staleness: Reads lag within a defined limit (e.g., 5-second delay).
+
+Session: Read-your-writes within a session (e.g., shopping cart).
+
+Consistent Prefix: Writes appear in commit order (e.g., timeline posts).
+
+Eventual: Reads eventually match writes (e.g., social media likes).
+Trade-offs: Stronger = lower availability; Weaker = higher performance.
+
+6. Create an Azure Cosmos DB account and Demonstrate adding and removing regions from your Database account

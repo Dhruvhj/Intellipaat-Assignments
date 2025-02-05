@@ -1,0 +1,24 @@
+1. List the Scenarios where you can use NoSQL or Non-Relational Database. 
+
+--NoSQL or non-relational databases are ideal in scenarios where there is a need to handle large volumes of unstructured or semi-structured data. They are well-suited for applications that require dynamic schema changes, such as content management systems, or where scalability is critical, such as in large-scale web and mobile applications. They are also useful for real-time processing, such as in analytics or chat applications, and for managing complex relationships, such as in social networks or recommendation systems.
+
+ 2. List the categories of Non-Relational or No SQL databases with relevant Azure services.
+
+--Non-relational databases can be categorized into several types. Key-value stores, like Azure Table Storage and Azure Cosmos DB (Key-Value mode), are simple and efficient for storing data as key-value pairs. Document stores, such as Azure Cosmos DB (MongoDB API), are used for semi-structured data in formats like JSON. Columnar data stores, such as Azure Synapse Analytics, are optimized for analytical queries by storing data in columns instead of rows. Lastly, graph databases, like Azure Cosmos DB (Gremlin API), are designed to handle data with complex relationships, making them ideal for use cases such as social networks and recommendation engines.
+
+3. Give a representation example for Columnar Data Stores and Graph Data Stores. 
+
+-- Columnar data stores organize data in columns instead of rows, which is efficient for analytical queries. For example, in a "Users" column family, rows can store data such as "001: Alice, 25, NYC" and "002: Bob, 30, LA," where columns like "Name," "Age," and "City" are optimized for querying. Graph data stores represent data as nodes and edges. For instance, in a social network, "Alice" and "Bob" are nodes, and "Alice -> LivesIn -> NYC" or "Bob -> LivesIn -> LA" are edges representing relationships.
+
+4. Why do we need NoSQL or Non-Relational Database? 
+
+--NoSQL or non-relational databases are essential for handling applications that require flexibility, scalability, and performance. They allow dynamic schema changes and provide horizontal scalability across distributed systems, which is critical for large workloads. These databases are optimized for high-speed queries and low latency, making them ideal for modern applications. Additionally, they are tailored to meet specific needs, whether for key-value storage, document-based structures, or graph relationships.
+
+5. Define Azure Data Lake Storage and its key components.
+
+Azure Data Lake Storage (ADLS) is a scalable and secure cloud solution designed for big data analytics, capable of storing and analyzing data of any format and scale. Its key components include a hierarchical namespace, which organizes data like a file system, and scalability, which supports petabytes of data for large-scale analytics. ADLS integrates seamlessly with Azure Synapse, Databricks, and HDInsight, making it versatile for data processing. Security features like encryption, role-based access control, and integration with Azure Active Directory ensure data protection.
+
+6. What is the required data shape for Graph Data Stores and Object Data Stores?
+
+--Graph data stores require data to be modeled as nodes and edges, where nodes represent entities and edges define their relationships. For instance, in a social network, "Alice" and "Bob" can be nodes, and their connections, such as "Alice -> Knows -> Bob," are edges. Object data stores, on the other hand, store data as objects or key-value pairs, often in formats like JSON or BSON. This structure is ideal for hierarchical or nested data, such as documents or multimedia files, making it easy to retrieve and manage complex data.
+
