@@ -1,99 +1,90 @@
-🎓 Intellipaat Data Engineering & DevOps Certification
+# 📘 Intellipaat Data Engineering & DevOps Certification — Assignments Repository
 
-📋 Certification Overview
+This repository contains all the **practical assignments, hands-on labs, and project work** I completed as part of the **Intellipaat Data Engineering & DevOps Certification**.
 
-This repository archives the complete practical coursework for the Intellipaat Data Engineering & DevOps Certification.
+The coursework covered the full lifecycle of modern data engineering and cloud automation — from building data pipelines to deploying infrastructure using DevOps practices.
 
-It demonstrates the end-to-end implementation of a modern data platform, bridging the gap between infrastructure (DevOps) and analytics (Data Engineering).
+---
 
-Core Objective: To master the lifecycle of data—from provisioning secure cloud infrastructure on Azure to automating deployments with Jenkins and processing big data with PySpark.
+## 🎯 **What This Repository Covers**
 
-🧠 Skills & Competencies Acquired
+### **1. Cloud & Infrastructure (Microsoft Azure)**
 
-☁️ 1. Cloud & Infrastructure (Microsoft Azure)
+* Virtual Machines, Blob Storage, SQL Databases
+* VNET Peering, Subnets, NSGs
+* Scaling strategies and resource optimization
 
-Resource Provisioning: Deployed Virtual Machines (VMs), Blob Storage, and SQL Databases.
+### **2. DevOps & Containerization**
 
-Network Security: Configured VNET Peering, Subnets, and Network Security Groups (NSGs) to isolate environments.
+* Dockerfile creation for Python ETL workflows
+* Kubernetes deployments (YAML manifests, pods, services)
+* Jenkins CI/CD pipelines for automated deployments
 
-Scaling Strategies: Implemented Vertical and Horizontal scaling for high-availability applications.
+### **3. Data Engineering**
 
-🐳 2. DevOps & Containerization
+* PySpark transformations and data processing
+* Data ingestion with Azure Data Factory / Fabric
+* SQL scripting, data modelling, and performance tuning
 
-Docker: Wrote Dockerfiles to containerize Python ETL scripts, ensuring environment consistency across Dev/Test/Prod.
+### **4. Analytics**
 
-Kubernetes (K8s): Created YAML manifests for Deployments, Services (ClusterIP/NodePort), and ReplicaSets to orchestrate microservices.
+* Power BI dashboards
+* Microsoft Fabric notebooks
+* KQL queries for Eventhouse / Log Analytics
 
-CI/CD (Jenkins): Built declarative pipelines to automate testing and deployment triggers from GitHub.
+---
 
-📊 3. Data Engineering & Analytics
+## 📂 **Repository Structure**
 
-Advanced SQL: Optimized queries using CTEs, Window Functions, and Stored Procedures for complex data modeling.
+Each folder corresponds to a module from the certification:
 
-Python/PySpark: Developed ETL scripts using Pandas/NumPy to clean and transform raw datasets.
+```
+Azure-Assignments/
+Docker-Assignments/
+Git-Assignments/
+Jenkins-Assignments/
+Kubernetes-Assignments/
+PowerBI-Assignments/
+Python-Assignments/
+SQL-Assignments/
+```
 
-Visualization: Designed interactive dashboards in Power BI to visualize business KPIs.
+Every assignment includes:
 
-📂 Project Repository Structure
+* Task Description
+* Implementation Steps
+* Code / Notebook
+* Outputs (screenshots, scripts, YAML, SQL, etc.)
 
-Folder Name
+---
 
-Description of Practical Work
+## 🎓 **About the Certification**
 
-Azure-Assignments
+The **Intellipaat Data Engineering & DevOps Certification** provided strong hands-on exposure to:
 
-☁️ Labs on VNET peering, Load Balancers, and Blob lifecycle management.
+* Designing scalable data systems
+* Automating pipelines & infrastructure
+* Applying cloud-native tools in real-world ETL and DevOps scenarios
 
-Docker-Assignments
+This repository acts as a **portfolio reference** showcasing my practical work across the entire program.
 
-🐳 Python application source code and optimized Dockerfiles.
+---
 
-Kubernetes-Assignments
+## ⭐ **Why This Repo Exists**
 
-☸️ YAML manifests for Pods, Deployments, and Service networking.
+I built this repository to:
 
-Jenkins-Assignments
+* Demonstrate the depth of skills learned
+* Provide examples of real hands-on work
+* Serve as a reference for employers and collaborators
 
-⚙️ Jenkins pipeline configurations (Groovy) for Master-Slave architecture.
+---
 
-Git-Assignments
+If you'd like a more polished README with:
+✔ diagrams
+✔ badges
+✔ collapsible sections
+✔ links to assignments
+✔ a professional banner
 
-🌿 Version control exercises: Branching strategies & conflict resolution.
-
-SQL-Assignments
-
-💾 Complex .sql queries, schema designs, and optimization case studies.
-
-Python-Assignments
-
-🐍 ETL scripts demonstrating API fetching, data cleaning, and automation.
-
-PowerBI-Assignments
-
-📊 .pbix dashboards connecting to transformed data sources.
-
-🛠️ Technology Stack
-
-Domain
-
-Technologies Used
-
-Cloud Provider
-
-Microsoft Azure (VMs, Blob, SQL DB)
-
-Containerization
-
-Docker, Kubernetes (Minikube/AKS)
-
-CI/CD
-
-Jenkins, Git/GitHub
-
-Languages
-
-Python, SQL, Bash
-
-BI Tools
-
-Microsoft Power BI
+Just tell me — I can generate it!
