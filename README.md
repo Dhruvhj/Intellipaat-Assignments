@@ -1,87 +1,99 @@
-Intellipaat Data Engineering & DevOps Certification
+🎓 Intellipaat Data Engineering & DevOps Certification
 
-🎓 Certification Overview
+📋 Certification Overview
 
-This repository contains the complete collection of practical assignments, lab exercises, and code submitted for the Intellipaat Data Engineering & DevOps Certification.
+This repository archives the complete practical coursework for the Intellipaat Data Engineering & DevOps Certification.
 
-The coursework focused on bridging the gap between software development, IT operations, and data engineering. It covered the full lifecycle of data—from infrastructure provisioning on Azure to building automated CI/CD pipelines and processing data with SQL and Python.
+It demonstrates the end-to-end implementation of a modern data platform, bridging the gap between infrastructure (DevOps) and analytics (Data Engineering).
 
-🧠 What I Learned
+Core Objective: To master the lifecycle of data—from provisioning secure cloud infrastructure on Azure to automating deployments with Jenkins and processing big data with PySpark.
 
-1. Cloud & Infrastructure (Microsoft Azure)
+🧠 Skills & Competencies Acquired
 
-Resource Management: Learned how to provision and manage Azure resources like Virtual Machines (VMs), Blob Storage, and SQL Databases.
+☁️ 1. Cloud & Infrastructure (Microsoft Azure)
 
-Networking: Gained hands-on experience setting up Virtual Networks (VNETs), Subnets, and Network Security Groups (NSGs) to secure cloud environments.
+Resource Provisioning: Deployed Virtual Machines (VMs), Blob Storage, and SQL Databases.
 
-Scaling: Understood how to implement Vertical and Horizontal scaling to handle variable workloads.
+Network Security: Configured VNET Peering, Subnets, and Network Security Groups (NSGs) to isolate environments.
 
-2. DevOps & Containerization
+Scaling Strategies: Implemented Vertical and Horizontal scaling for high-availability applications.
 
-Docker: Learned to "containerize" applications by writing Dockerfiles to package Python code and its dependencies, ensuring it runs the same way on my laptop as it does in production.
+🐳 2. DevOps & Containerization
 
-Kubernetes (K8s): Mastered the orchestration of containers. Learned to write YAML manifests to deploy applications, manage Pods, and expose services to the internet.
+Docker: Wrote Dockerfiles to containerize Python ETL scripts, ensuring environment consistency across Dev/Test/Prod.
 
-CI/CD (Jenkins): Built automated pipelines that detect code changes in GitHub and automatically trigger builds and tests, reducing manual deployment errors.
+Kubernetes (K8s): Created YAML manifests for Deployments, Services (ClusterIP/NodePort), and ReplicaSets to orchestrate microservices.
 
-3. Data Engineering Fundamentals
+CI/CD (Jenkins): Built declarative pipelines to automate testing and deployment triggers from GitHub.
 
-Advanced SQL: Went beyond basic SELECT statements to master Complex Joins, Sub-queries, Stored Procedures, and Window Functions for data analysis.
+📊 3. Data Engineering & Analytics
 
-Python for Data: Used libraries like Pandas and NumPy to clean messy datasets, handle missing values, and transform data for reporting.
+Advanced SQL: Optimized queries using CTEs, Window Functions, and Stored Procedures for complex data modeling.
 
-Visualization: Connected data sources to Power BI to create interactive dashboards and reports for business intelligence.
+Python/PySpark: Developed ETL scripts using Pandas/NumPy to clean and transform raw datasets.
 
-📂 Repository Contents
+Visualization: Designed interactive dashboards in Power BI to visualize business KPIs.
 
-Here is a breakdown of the practical work contained in each folder:
+📂 Project Repository Structure
 
-Folder
+Folder Name
 
-Description of Work
+Description of Practical Work
 
 Azure-Assignments
 
-Labs on creating VNET peering, load balancers, and managing Azure Blob storage lifecycles.
+☁️ Labs on VNET peering, Load Balancers, and Blob lifecycle management.
 
 Docker-Assignments
 
-Source code for Python apps and the Dockerfiles used to build their images.
+🐳 Python application source code and optimized Dockerfiles.
 
 Kubernetes-Assignments
 
-YAML configuration files for Deployments, Services (ClusterIP/NodePort), and ReplicaSets.
+☸️ YAML manifests for Pods, Deployments, and Service networking.
 
 Jenkins-Assignments
 
-Configuration details for setting up Master-Slave architecture and declarative Jenkins pipelines.
+⚙️ Jenkins pipeline configurations (Groovy) for Master-Slave architecture.
 
 Git-Assignments
 
-Exercises on branching strategies, merge conflict resolution, and git workflow best practices.
+🌿 Version control exercises: Branching strategies & conflict resolution.
 
 SQL-Assignments
 
-.sql scripts containing solutions for complex database queries and schema design case studies.
+💾 Complex .sql queries, schema designs, and optimization case studies.
 
 Python-Assignments
 
-Python scripts demonstrating data manipulation, API calls, and ETL logic.
+🐍 ETL scripts demonstrating API fetching, data cleaning, and automation.
 
 PowerBI-Assignments
 
-.pbix files representing data models and visual dashboards.
+📊 .pbix dashboards connecting to transformed data sources.
 
-🛠️ Tools & Technologies Used
+🛠️ Technology Stack
 
-Cloud: Microsoft Azure
+Domain
 
-Containerization: Docker, Kubernetes
+Technologies Used
 
-Automation: Jenkins, Git
+Cloud Provider
 
-Languages: SQL, Python
+Microsoft Azure (VMs, Blob, SQL DB)
 
-Analytics: Power BI
+Containerization
 
-This repository serves as a technical log of my learning journey and practical application of Data Engineering & DevOps principles.
+Docker, Kubernetes (Minikube/AKS)
+
+CI/CD
+
+Jenkins, Git/GitHub
+
+Languages
+
+Python, SQL, Bash
+
+BI Tools
+
+Microsoft Power BI
