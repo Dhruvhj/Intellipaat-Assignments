@@ -70,21 +70,5 @@ This repository acts as a **portfolio reference** showcasing my practical work a
 
 ---
 
-## ⭐ **Why This Repo Exists**
 
-I built this repository to:
 
-* Demonstrate the depth of skills learned
-* Provide examples of real hands-on work
-* Serve as a reference for employers and collaborators
-
----
-
-If you'd like a more polished README with:
-✔ diagrams
-✔ badges
-✔ collapsible sections
-✔ links to assignments
-✔ a professional banner
-
-Just tell me — I can generate it!
